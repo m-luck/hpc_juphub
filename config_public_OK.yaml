@@ -1,0 +1,27 @@
+proxy:
+  secretToken: "i64582f871b6ad6b5374200697a041ae4ccbb7309aac97a7f357d51ba6f6b59b6"
+  https:
+    hosts:
+      - juphub.likeanimalmuch.space
+    letsencrypt:
+      contactEmail: mll469@nyu.edu
+hub:
+  extraConfig:
+    jupyterlab: |
+      c.Spawner.cmd = ['jupyter-labhub']
+singleuser:
+  image:
+    # Get the latest image tag at:
+    # https://hub.docker.com/r/jupyter/datascience-notebook/tags/
+    # Inspect the Dockerfile at:
+    # https://github.com/jupyter/docker-stacks/tree/master/datascience-notebook/Dockerfile
+    name: jupyter/datascience-notebook
+    tag: latest
+auth:
+  type: google
+  google:
+    clientId: "1036841533663-d0kf0i2hblqd409g05c7i8af3fch3c0k.apps.googleusercontent.com"
+    clientSecret: "v5r163xsSZB6nkR4czi1jKIF"
+    callbackUrl: "https://juphub.likeanimalmuch.space/hub/oauth_callback"
+    hostedDomain: "nyu.edu"
+    loginService: "New York University"
